@@ -34,7 +34,7 @@ const Main = () => {
     }
   };
   return (
-    <>
+    <div className="Main">
       <nav className="navigation">
         <img className="icon" src="images/instagram.png" alt="인스타 아이콘" />
         <h1 className="navLogo">|</h1>
@@ -105,12 +105,10 @@ const Main = () => {
               </p>
             </div>
             <div>
-              {" "}
               <p className="small-font likes">ㅇㅇ님 외 n명이 좋아합니다.</p>
             </div>
             <ul className="comment-list">
               <li className="comment-content">
-                {" "}
                 <p>멍멍이귀여워불쌍해</p>
                 <div className="date">몇분전에 달린댓글</div>
               </li>
@@ -279,7 +277,7 @@ const Main = () => {
           </p>
         </div>
       </main>
-    </>
+    </div>
   );
 };
 

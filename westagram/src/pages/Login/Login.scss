@@ -1,45 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
-body {
+.login {
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgb(243, 239, 239);
-}
 
-.content-wrap {
-  width: 700px;
-  height: 700px;
-  text-align: center;
-  background-color: white;
-  border: 2px solid rgb(190, 178, 178);
-}
+  .content-wrap {
+    width: 700px;
+    height: 700px;
+    text-align: center;
+    background-color: white;
+    border: 2px solid rgb(190, 178, 178);
+  }
 
-h1 {
-  font-size: 5em;
-  font-weight: 400;
-  font-family: "Lobster", cursive;
-}
+  h1 {
+    font-size: 5em;
+    font-weight: 400;
+    font-family: "Lobster", cursive;
+  }
 
-input {
-  display: flex;
-  width: 20rem;
-  height: 3rem;
-  margin: 1em 14em;
-  border-radius: 0.5rem;
-  border-color: rgb(246, 245, 245);
-  background-color: rgb(247, 240, 240);
-}
+  input {
+    display: flex;
+    width: 20rem;
+    height: 3rem;
+    margin: 1em 14em;
+    border-radius: 0.5rem;
+    border-color: rgb(246, 245, 245);
+    background-color: rgb(247, 240, 240);
+  }
 
-button {
-  color: white;
-  margin-top: 5em;
-  border-radius: 0.5rem;
-  border-style: none;
-  width: 20.5rem;
-  height: 3.1rem;
-  margin-bottom: 5rem;
-  transition: all 0.5s;
+  button {
+    color: white;
+    margin-top: 5em;
+    border-radius: 0.5rem;
+    border-style: none;
+    width: 20.5rem;
+    height: 3.1rem;
+    margin-bottom: 5rem;
+    transition: all 0.5s;
+  }
 }
