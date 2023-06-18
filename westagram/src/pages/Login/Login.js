@@ -1,27 +1,27 @@
 import React, { useState } from "react";
-import "./Login.scss";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import "./Login.scss";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const [ID, setID] = useState("");
   const [password, setPassword] = useState("");
-  const [isValidEmail, setIsValidEmail] = useState(true);
+  const [isValidID, setIsValidID] = useState(true);
   const [isValidPassword, setIsValidPassword] = useState(true);
-  const isButtonDisabled = !email || !password;
+  const isButtonDisabled = !ID || !password;
   const navigate = useNavigate();
 
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
+  const saveUserId = (e) => {
+    setID(e.target.value);
   };
 
-  const handlePassword = (e) => {
+  const savePassword = (e) => {
     setPassword(e.target.value);
   };
 
-  const validateEmail = (email) => {
-    const emailRegex = /^[a-zA-Z0-9]+@[a-z]+\.[a-z]+$/;
-    return emailRegex.test(email);
+  const validateID = (ID) => {
+    const IDRegex = /^[a-zA-Z0-9]+@[a-z]+\.[a-z]+$/;
+    return IDRegex.test(ID);
   };
 
   const validatePassword = (password) => {
@@ -31,54 +31,52 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!validateEmail(email)) {
-      setIsValidEmail(false);
-      alert("Invalid email.");
+    if (!validateID(ID)) {
+      setIsValidID(false);
+      alert("이메일 형식을 지켜주세요");
     } else if (!validatePassword(password)) {
       setIsValidPassword(false);
-      alert("password is only number type and over 8 digits.");
+      alert("비밀번호는 여덟자리 숫자로 입력해주세요");
     } else {
-      alert("✅ login success!");
+      alert("✅ 로그인에 성공하셨습니다.");
     }
   };
   return (
-    <div className="login">
+    <div className="loginSujeong">
       <div className="content-wrap">
         <form onSubmit={handleSubmit}>
           <h1>westagram</h1>
           <div className="input-box">
             <input
-              onChange={handleEmail}
+              onChange={saveUserId} //svaeUserId함수실행
               type="text"
-              value={email}
+              value={ID}
               placeholder=" 전화번호, 사용자 이름 또는 이메일"
-              className={!isValidEmail ? "invalid" : ""}
+              className={!isValidID ? "invalid" : ""}
             />
           </div>
           <input
-            onChange={handlePassword}
+            onChange={savePassword}
             type="password"
             value={password}
             placeholder=" 비밀번호"
             className={!isValidPassword ? "invalid" : ""}
           />
-          <Link to="/Main">
-            <button
-              type="submit"
-              className="login-btn"
-              disabled={isButtonDisabled}
-              style={{
-                backgroundColor: isButtonDisabled
-                  ? "grey"
-                  : "rgb(45, 139, 240)",
-              }}
-              onClick={() => {
-                navigate("/Main");
-              }}
-            >
-              로그인
-            </button>
-          </Link>
+          {/* <Link to="/MainSujeong"> */}
+          <button
+            type="submit"
+            className="login-btn"
+            disabled={isButtonDisabled}
+            style={{
+              backgroundColor: isButtonDisabled ? "grey" : "rgb(45, 139, 240)",
+            }}
+            onClick={() => {
+              navigate("/MainSujeong");
+            }}
+          >
+            로그인
+          </button>
+          {/* </Link> */}
         </form>
 
         <a href="https://www.instagram.com/accounts/password/reset/">
