@@ -1,64 +1,56 @@
-import "./Main.scss";
+import "./MainSujeong.scss";
+import React, { useState } from "react";
 
-const Main = () => {
+const MainSujeong = () => {
+  const [comments, setComments] = useState([
+    { content: "멍멍이귀여워불쌍해", date: "2023년 오후 1:10:10에 달린 댓글" },
+  ]);
+
   const handleKeyUp = (e) => {
     const commentInput = document.querySelector(".comment-input");
-    const commentList = document.querySelector(".comment-list");
 
     if (e.key === "Enter") {
       e.preventDefault();
       const commentText = commentInput.value;
 
       if (commentText !== "") {
-        const newComment = document.createElement("li");
-        newComment.textContent = commentText;
-        commentList.appendChild(newComment);
-        commentInput.value = "";
+        const newComment = {
+          content: commentText,
+          date: getCurrentTime(),
+        };
+
+        setComments((prevComments) => [...prevComments, newComment]);
+        e.target.value = "";
       }
     }
   };
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     const commentInput = document.querySelector(".comment-input");
-    const commentList = document.querySelector(".comment-list");
-
     const commentText = commentInput.value;
 
     if (commentText !== "") {
-      const newComment = document.createElement("li");
-      newComment.textContent = commentText;
-      commentList.appendChild(newComment);
+      const newComment = {
+        content: commentText,
+        date: getCurrentTime(),
+      };
+
+      setComments((prevComments) => [...prevComments, newComment]);
       commentInput.value = "";
     } else {
-      alert("Please insert text");
+      alert("글을 작성해주세요");
     }
   };
+
+  const getCurrentTime = () => {
+    const currentTime = new Date().toLocaleString("ko-KR", {
+      hour12: true,
+    });
+
+    return `${currentTime}에 달린댓글`;
+  };
   return (
-    <div className="Main">
-      <nav className="navigation">
-        <img className="icon" src="images/instagram.png" alt="인스타 아이콘" />
-        <h1 className="navLogo">|</h1>
-        <h1 className="navLogo">westagram</h1>
-        <div className="searchBar">
-          <i className="fas fa-solid fa-magnifying-glass"></i>
-          <input className="searchBox" type="search" placeholder="검색" />
-        </div>
-        <img
-          className="icon"
-          src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/explore.png"
-          alt="검색 아이콘"
-        />
-        <img
-          className="icon"
-          src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/heart.png"
-          alt="하트 아이콘"
-        />
-        <img
-          className="userProfile"
-          src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/bearu/profile.png"
-          alt="사용자 아이콘"
-        />
-      </nav>
+    <div className="MainSujeong">
       <div className="profile-detail"></div>
       <main>
         <div className="feeds">
@@ -89,7 +81,7 @@ const Main = () => {
               />
               <img
                 className="posting-icon share-icon"
-                src="images/share.png"
+                src="images//share.png"
                 alt="공유 아이콘"
               />
               <img
@@ -108,10 +100,12 @@ const Main = () => {
               <p className="small-font likes">ㅇㅇ님 외 n명이 좋아합니다.</p>
             </div>
             <ul className="comment-list">
-              <li className="comment-content">
-                <p>멍멍이귀여워불쌍해</p>
-                <div className="date">몇분전에 달린댓글</div>
-              </li>
+              {comments.map((comment, i) => (
+                <li className="comment-content" key={i}>
+                  <p>{comment.content}</p>
+                  <div className="date">{comment.date}</div>
+                </li>
+              ))}
             </ul>
             <div className="write-commments">
               <input
@@ -281,4 +275,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default MainSujeong;
