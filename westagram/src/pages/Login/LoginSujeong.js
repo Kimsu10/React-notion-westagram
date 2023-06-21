@@ -50,6 +50,20 @@ const LoginSujeong = () => {
     }
   };
 
+  // // fetch("".{method:"GET"})
+
+  // fetch("/data/mock.js", "option 객체", {
+  //   method: "get",
+  // }) //fetch시 무한으로 돌기때문에 반드시 useEffect를 써야한다.
+  //   .then((res) => {
+  //     res.json(); //제이슨을 자바스크립트로 바꿔줌
+  //   }) //비동기함수를 사용한다. then뒤에 ;붙이면 다음으로 안넘어가니까 조심하자.
+  //   .then((res) => {
+  //     console.log(res);
+  //     return <div>{item.title}</div>;
+  //    setData(res)
+  //   });
+
   return (
     <div className="loginSujeong">
       <div className="content-wrap">
